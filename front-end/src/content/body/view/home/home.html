@@ -1,0 +1,11 @@
+<div class="home">
+    <div class="content">
+        <div class="images">
+            <div class="block-img" data-ng-repeat="el in tooltips track by $index" data-ng-mouseover="tooltipShow($event, el)" data-ng-mouseleave="tooltipHide()">
+
+                <img data-ng-src="{{el.img}}" alt="" class="img">
+
+            </div>
+        </div>
+    </div>
+</div>

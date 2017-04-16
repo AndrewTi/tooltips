@@ -1,0 +1,60 @@
+@keyframes tooltipShow {
+  0% {
+    display block;
+    opacity 0;
+  }
+
+  30%{
+      margin-top: 0;
+  }
+
+  100% {
+    display block;
+    opacity 1;
+    margin-top: 10px;
+  }
+}
+
+@keyframes menuShow {
+  0% {
+    right -100vw;
+    opacity 0.5;
+  }
+
+  100% {
+    right 0;
+    opacity 1;
+  }
+}
+
+@keyframes menuHide {
+  0% {
+    right 0;
+    opacity 1;
+  }
+
+  100% {
+    right -100vw;
+    opacity 0;
+  }
+}
+
+@keyframes contentShow {
+  0% {
+    right -280px;
+  }
+
+  100% {
+    right 0px;
+  }
+}
+
+@keyframes contentHide {
+  0% {
+    right 0px;
+  }
+
+  100% {
+    right -280px;
+  }
+}

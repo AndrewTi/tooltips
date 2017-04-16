@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="TooltipsApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.min.css">
+    <link rel="stylesheet" href="styles/app.css">
+</head>
+<body data-ng-controller="GlobalCtrl">
+
+<div class="menu-button" data-ng-click="showMenu()"></div>
+
+<div class="menu" id="menu">
+    <div class="backgr" data-ng-click="hideMenu()"></div>
+
+    <div class="content" id="menu-content">
+        <div class="head"></div>
+        <div class="control">
+            <a class="button" href="#/" data-ng-click="hideMenu()">Home</a>
+            <a class="button" href="#/admin" data-ng-click="hideMenu()">Manage</a>
+        </div>
+    </div>
+</div>
+
+//= content/body/body.html
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
