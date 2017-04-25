@@ -27,17 +27,82 @@ angular.module("AdminCtrl", [])
 
         $scope.data = {
             add: {
-                head: "",
-                text: "",
+                select: {},
+                textToolt: [{text: "", head: ""}],
                 img: ""
             },
 
             edit: {
                 id: "",
-                head: "",
-                text: "",
+                select: {},
+                textToolt: [],
                 img: ""
             }
+        };
+
+        $scope.addNewText = () => {
+            $scope.data.add.textToolt.push({text: "", head: ""});
+        };
+
+        $scope.rmText = (index) => {
+            let arr;
+            $scope.data.add.textToolt.forEach((e, i) => {
+                if(i != index) {
+                    arr.push(e);
+                }
+            });
+
+            $scope.data.add.textToolt = arr;
+        };
+
+        $scope.editAddNewText = () => {
+            $scope.data.edit.textToolt.push({text: "", head: ""});
+        };
+
+        $scope.editRmText = (index) => {
+            let arr = [];
+
+            $scope.data.edit.textToolt.forEach((e, i) => {
+                if(i != index) {
+                    arr.push(e);
+                }
+            });
+
+            $scope.data.edit.textToolt = arr;
+        };
+
+        $scope.selectTextToolt = (data) => {
+            $scope.data.add.select = data;
+        };
+
+        $scope.editSelectTextToolt = (data) => {
+            $scope.data.edit.select = data;
+        };
+
+        $scope.removeTooltText = (idx) => {
+            let arr = [];
+            console.log($scope.data.add.textToolt);
+
+            $scope.data.add.textToolt.forEach((el, index) => {
+                if(idx != index){
+                    arr.push(el);
+                }
+            });
+
+            $scope.data.add.textToolt = arr;
+        };
+
+        $scope.editRemoveTooltText = (idx) => {
+            let arr = [];
+            console.log($scope.data.edit.textToolt);
+
+            $scope.data.edit.textToolt.forEach((el, index) => {
+                if(idx != index){
+                    arr.push(el);
+                }
+            });
+
+            $scope.data.edit.textToolt = arr;
         };
 
         $scope.edit = {
@@ -47,8 +112,8 @@ angular.module("AdminCtrl", [])
                 if(!bool) return false;
                 $scope.data.edit = {
                     _id: edit._id,
-                    head: edit.head,
-                    text: edit.text,
+                    select: edit.select,
+                    textToolt: edit.textToolt,
                     img: edit.img
                 };
             }

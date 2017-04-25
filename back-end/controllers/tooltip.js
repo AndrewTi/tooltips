@@ -19,8 +19,8 @@ module.exports = {
         const data = req.body;
 
         const tooltip = new Tooltip({
-            head: data.head,
-            text: data.text,
+            textToolt: data.textToolt,
+            select: data.select,
             img: data.img
         });
 
@@ -39,8 +39,8 @@ module.exports = {
         const data = req.body;
 
         Tooltip.findByIdAndUpdate(data.id, {$set: {
-            head: data.head,
-            text: data.text,
+            textToolt: data.textToolt,
+            select: data.select,
             img: data.img
         }}, (err) => {
             if(err) {

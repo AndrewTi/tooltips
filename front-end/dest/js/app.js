@@ -30,8 +30,8 @@ angular.module("Tooltip", []).factory("TooltipPos", function () {
     };
 
     var setData = function setData(toolt, data) {
-        toolt.head.textContent = data.head;
-        toolt.text.textContent = data.text;
+        toolt.head.textContent = data.select.head;
+        toolt.text.textContent = data.select.text;
     };
 
     return {
@@ -79,8 +79,8 @@ angular.module("Admin", []).factory("Admin", function ($http) {
 
     var add = function add(data) {
         var query = {
-            head: data.head,
-            text: data.text,
+            textToolt: data.textToolt,
+            select: data.select,
             img: data.img
         };
 
@@ -90,8 +90,8 @@ angular.module("Admin", []).factory("Admin", function ($http) {
     var edit = function edit(data) {
         var query = {
             id: data._id,
-            head: data.head,
-            text: data.text,
+            textToolt: data.textToolt,
+            select: data.select,
             img: data.img
         };
 
@@ -130,7 +130,7 @@ angular.module("GlobalCtrl", []).controller("GlobalCtrl", function ($scope, Tool
 
     $scope.$on("remove", function (event, id) {
         var arr = [];
-        $scope.tooltips.forEach(function (el, index) {
+        $scope.tooltips.forEach(function (el) {
             if (el._id != id) {
                 arr.push(el);
             }
@@ -141,7 +141,7 @@ angular.module("GlobalCtrl", []).controller("GlobalCtrl", function ($scope, Tool
 
     $scope.$on("edit", function (event, data) {
         var arr = [];
-        $scope.tooltips.forEach(function (el, index) {
+        $scope.tooltips.forEach(function (el) {
             if (el._id == data._id) {
                 el = data;
             }
@@ -203,17 +203,82 @@ angular.module("AdminCtrl", []).controller("AdminCtrl", function ($scope, Admin)
 
     $scope.data = {
         add: {
-            head: "",
-            text: "",
+            select: {},
+            textToolt: [{ text: "", head: "" }],
             img: ""
         },
 
         edit: {
             id: "",
-            head: "",
-            text: "",
+            select: {},
+            textToolt: [],
             img: ""
         }
+    };
+
+    $scope.addNewText = function () {
+        $scope.data.add.textToolt.push({ text: "", head: "" });
+    };
+
+    $scope.rmText = function (index) {
+        var arr = void 0;
+        $scope.data.add.textToolt.forEach(function (e, i) {
+            if (i != index) {
+                arr.push(e);
+            }
+        });
+
+        $scope.data.add.textToolt = arr;
+    };
+
+    $scope.editAddNewText = function () {
+        $scope.data.edit.textToolt.push({ text: "", head: "" });
+    };
+
+    $scope.editRmText = function (index) {
+        var arr = [];
+
+        $scope.data.edit.textToolt.forEach(function (e, i) {
+            if (i != index) {
+                arr.push(e);
+            }
+        });
+
+        $scope.data.edit.textToolt = arr;
+    };
+
+    $scope.selectTextToolt = function (data) {
+        $scope.data.add.select = data;
+    };
+
+    $scope.editSelectTextToolt = function (data) {
+        $scope.data.edit.select = data;
+    };
+
+    $scope.removeTooltText = function (idx) {
+        var arr = [];
+        console.log($scope.data.add.textToolt);
+
+        $scope.data.add.textToolt.forEach(function (el, index) {
+            if (idx != index) {
+                arr.push(el);
+            }
+        });
+
+        $scope.data.add.textToolt = arr;
+    };
+
+    $scope.editRemoveTooltText = function (idx) {
+        var arr = [];
+        console.log($scope.data.edit.textToolt);
+
+        $scope.data.edit.textToolt.forEach(function (el, index) {
+            if (idx != index) {
+                arr.push(el);
+            }
+        });
+
+        $scope.data.edit.textToolt = arr;
     };
 
     $scope.edit = {
@@ -223,8 +288,8 @@ angular.module("AdminCtrl", []).controller("AdminCtrl", function ($scope, Admin)
             if (!bool) return false;
             $scope.data.edit = {
                 _id: edit._id,
-                head: edit.head,
-                text: edit.text,
+                select: edit.select,
+                textToolt: edit.textToolt,
                 img: edit.img
             };
         }

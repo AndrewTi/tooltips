@@ -4,9 +4,9 @@ angular.module("Admin", [])
 
         const add = (data) => {
             let query = {
-                    head: data.head,
-                    text:data.text,
-                    img:data.img
+                textToolt: data.textToolt,
+                select: data.select,
+                img:data.img
             };
 
             return $http.post(baseUrl+"add", JSON.stringify(query));
@@ -15,8 +15,8 @@ angular.module("Admin", [])
         const edit = (data) => {
             let query = {
                 id: data._id,
-                head: data.head,
-                text:data.text,
+                textToolt: data.textToolt,
+                select: data.select,
                 img:data.img
             };
 

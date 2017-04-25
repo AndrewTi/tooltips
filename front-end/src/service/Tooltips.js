@@ -15,8 +15,8 @@ angular.module("Tooltip", [])
         };
 
         const setData = (toolt, data) => {
-            toolt.head.textContent = data.head;
-            toolt.text.textContent = data.text;
+            toolt.head.textContent = data.select.head;
+            toolt.text.textContent = data.select.text;
         };
 
 

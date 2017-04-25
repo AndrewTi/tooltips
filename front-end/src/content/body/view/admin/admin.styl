@@ -30,11 +30,58 @@
           flex-direction column;
           color white;
 
-          > input, textarea {
+          > .img {
             margin 10px 0;
           }
 
-          > .input {
+          > .addNewToolt {
+            text-align center;
+            height 30px;
+            line-height 30px;
+            background lightskyblue;
+
+            &:hover {
+              cursor pointer;
+              opacity 0.8;
+            }
+          }
+
+          > .repeat {
+            display flex;
+            flex-direction column;
+
+            > .ctrl {
+              display flex;
+              justify-content center;
+              width 100%;
+
+               > .button {
+                  width 100%;
+                  height 25px;
+                 text-align center;
+                 line-height 25px;
+
+                 &.-select {
+                   background limegreen;
+                 }
+
+                 &.-remove {
+                   background indianred;
+                 }
+
+                 &:hover {
+                   opacity 0.8;
+                   cursor pointer;
+                 }
+               }
+            }
+          }
+
+          > .repeat > input, textarea {
+            margin 10px 0;
+          }
+
+          > .repeat > .input {
             border none;
 
             &.-head {
@@ -90,13 +137,11 @@
           > .img {
             width 100%;
             height 100%
-            object-fit cover;
           }
         }
 
         > .tooltip-prev {
           width 250px;
-          height 150px;
           left 10px;
           background #f6f6f6;
           box-shadow 0 0 20px 1px rgba(0,0,0,0.2);
@@ -156,7 +201,6 @@
         > .img {
           width 100%;
           height 100%
-          object-fit cover;
         }
 
         > .controls {
@@ -218,6 +262,7 @@
       display flex;
       flex-wrap wrap;
       width 100%;
+      height 70vh;
       justify-content space-around;
       background rgba(255,255,255,0.6);
       padding-bottom 20px;
@@ -227,21 +272,71 @@
 
       > .block-form {
         display flex;
+        overflow auto;
+        height 220;
 
         > .form {
           display flex;
           flex-direction column;
           color white;
 
-          > input, textarea {
+          > .img {
             margin 10px 0;
           }
 
-          > .input {
+          > .addNewToolt {
+            text-align center;
+            min-height 30px;
+            line-height 30px;
+            background lightskyblue;
+
+            &:hover {
+              cursor pointer;
+              opacity 0.8;
+            }
+          }
+
+          > .repeat {
+            display flex;
+            flex-direction column;
+            min-height 220px;
+
+            > .ctrl {
+              display flex;
+              justify-content center;
+              width 100%;
+
+              > .button {
+                width 100%;
+                min-height 25px;
+                text-align center;
+                line-height 25px;
+
+                &.-select {
+                  background limegreen;
+                }
+
+                &.-remove {
+                  background indianred;
+                }
+
+                &:hover {
+                  opacity 0.8;
+                  cursor pointer;
+                }
+              }
+            }
+          }
+
+          > .repeat > input, textarea {
+            margin 10px 0;
+          }
+
+          > .repeat > .input {
             border none;
 
             &.-head {
-              height 30px;
+              min-height 30px;
               text-align center;
               font-size 18px;
               color: #727272;
@@ -259,7 +354,7 @@
           }
 
           > .button {
-            height 35px;
+            min-height 35px;
             background white;
             border none;
             font-size 14px;

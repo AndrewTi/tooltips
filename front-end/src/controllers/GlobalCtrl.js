@@ -16,7 +16,7 @@ angular.module("GlobalCtrl", [])
 
         $scope.$on("remove", (event, id) =>{
             let arr = [];
-            $scope.tooltips.forEach((el, index) => {
+            $scope.tooltips.forEach(el => {
                 if(el._id != id){
                     arr.push(el);
                 }
@@ -27,7 +27,7 @@ angular.module("GlobalCtrl", [])
 
         $scope.$on("edit", (event, data) => {
             let arr = [];
-            $scope.tooltips.forEach((el, index) => {
+            $scope.tooltips.forEach(el => {
                 if(el._id == data._id){
                     el = data;
                 }
